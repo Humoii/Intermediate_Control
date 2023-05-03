@@ -2,7 +2,7 @@
 import datetime
 
 def Menu_Notes():
-# C:\Users\serge\Desktop\Intermediate_Control\Work1Python\Notes.csv
+
     while True:
         with open("Notes.csv", mode = "r", encoding = "utf-8") as file_read:
                 data = []
