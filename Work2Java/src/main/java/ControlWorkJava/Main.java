@@ -48,28 +48,35 @@ public class Main {
             System.out.println("3 изменить вес игрушки: ");
             System.out.println("4 Просмотреть все игрушки участвующие в розыгрыше: ");
             System.out.println("0 завершить программу: ");
+
             String strScanner = scanner.next();
-            if (strScanner.equals("1")) {
-                uniqueToy.add(createToy());
-            }
-            if (strScanner.equals("2")) {
-                count++;
-                Giveaway(uniqueToy, count);
-            }
-            if (strScanner.equals("3")) {
-                ChangeDropToy(uniqueToy);
-            }
-            if (strScanner.equals("4")) {
-                for (Toys toys : uniqueToy) {
-                    System.out.printf("ID игрушки: %s%n", toys.getIdToy());
-                    System.out.printf("Название игрушки: %s%n", toys.getNameToy());
-                    System.out.printf("Количество игрушек: %d%n", toys.getQuantityToy());
-                    System.out.printf("Шанс выпадения игрушки: %d%n%n", toys.getDropToy());
+            if (    strScanner.equals("1") ||
+                    strScanner.equals("2") ||
+                    strScanner.equals("3") ||
+                    strScanner.equals("4") ||
+                    strScanner.equals("0")) {
+                if (strScanner.equals("1")) {
+                    uniqueToy.add(createToy());
                 }
-            }
-            if (strScanner.equals("0")){
-                System.out.println("До свидания!");
-                break;
+                if (strScanner.equals("2")) {
+                    count++;
+                    Giveaway(uniqueToy, count);
+                }
+                if (strScanner.equals("3")) {
+                    ChangeDropToy(uniqueToy);
+                }
+                if (strScanner.equals("4")) {
+                    for (Toys toys : uniqueToy) {
+                        System.out.printf("ID игрушки: %s%n", toys.getIdToy());
+                        System.out.printf("Название игрушки: %s%n", toys.getNameToy());
+                        System.out.printf("Количество игрушек: %d%n", toys.getQuantityToy());
+                        System.out.printf("Шанс выпадения игрушки: %d%n%n", toys.getDropToy());
+                    }
+                }
+                if (strScanner.equals("0")) {
+                    System.out.println("До свидания!");
+                    break;
+                }
             }else {
                 System.out.println("Введены не корректные данные!");
             }
@@ -104,7 +111,6 @@ public class Main {
                 quantity = toys.getQuantityToy();
                 toys.setQuantityToy(quantity - 1);
                 WritingToFile(toys, count);
-                System.out.println(toys.getIdToy());
                 break;
             }
         }
