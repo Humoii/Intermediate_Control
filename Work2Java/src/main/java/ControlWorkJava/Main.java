@@ -40,17 +40,13 @@ public class Main {
         int count = 0; // счетчик пользователей которые участвовали в розыгрыше призов
 
         while (true) {
-            for (Toys toys : uniqueToy) {
-                System.out.printf("ID игрушки: %s%n", toys.getIdToy());
-                System.out.printf("Название игрушки: %s%n", toys.getNameToy());
-                System.out.printf("Количество игрушек: %d%n", toys.getQuantityToy());
-                System.out.printf("Шанс выпадения игрушки: %d%n%n", toys.getDropToy());
-            }
+
             Scanner scanner = new Scanner(System.in);
             System.out.println("Выберите действие: ");
             System.out.println("1 добавить игрушку: ");
             System.out.println("2 Розыгрыш игрушки: ");
             System.out.println("3 изменить вес игрушки: ");
+            System.out.println("4 Просмотреть все игрушки участвующие в розыгрыше: ");
             System.out.println("0 завершить программу: ");
             String strScanner = scanner.next();
             if (strScanner.equals("1")) {
@@ -63,9 +59,19 @@ public class Main {
             if (strScanner.equals("3")) {
                 ChangeDropToy(uniqueToy);
             }
+            if (strScanner.equals("4")) {
+                for (Toys toys : uniqueToy) {
+                    System.out.printf("ID игрушки: %s%n", toys.getIdToy());
+                    System.out.printf("Название игрушки: %s%n", toys.getNameToy());
+                    System.out.printf("Количество игрушек: %d%n", toys.getQuantityToy());
+                    System.out.printf("Шанс выпадения игрушки: %d%n%n", toys.getDropToy());
+                }
+            }
             if (strScanner.equals("0")){
                 System.out.println("До свидания!");
                 break;
+            }else {
+                System.out.println("Введены не корректные данные!");
             }
         }
     }
